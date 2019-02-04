@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+import django_heroku
 from decouple import config, Csv
 from dj_database_url import parse as dburl
 
@@ -122,6 +123,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Media Files (Uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+COLLECTFAST_ENABLED = False
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
+
+# Force ssl if run in Heroku
+if 'DYNO' in os.environ:
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Configure Email
 EMAIL_HOST = config('EMAIL_HOST', default='localhost')
