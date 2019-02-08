@@ -149,7 +149,8 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_NAME'),
     'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET')
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+    'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, '/manifest/')
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.RawMediaCloudinaryStorage'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
