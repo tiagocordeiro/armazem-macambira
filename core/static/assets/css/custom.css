@@ -1,0 +1,6 @@
+.caatinga-filter:after {
+  background: rgba(142, 107, 99, 0.64);
+  background: linear-gradient(45deg, rgba(142, 108, 128, 0.88) 0%, rgba(185, 16, 66, 0.45) 100%);
+  background: -moz-linear-gradient(135deg, rgba(142, 61, 63, 0.88) 0%, rgba(185, 5, 71, 0.45) 100%);
+  background: -webkit-linear-gradient(135deg, rgba(142, 74, 59, 0.88) 0%, rgba(185, 9, 8, 0.45) 100%);
+}

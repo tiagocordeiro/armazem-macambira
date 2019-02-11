@@ -18,6 +18,8 @@
   <link href="{% static 'assets/css/material-kit.css' %}" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="{% static "assets/demo/demo.css" %}" rel="stylesheet">
+  <!-- CSS Custom -->
+  <link href="{% static "assets/css/custom.css" %}" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -83,6 +85,11 @@
           <div class="brand">
             <h1>Armazém Macambira</h1>
             <h3>A Badass Bootstrap 4 UI Kit based on Material Design.</h3>
+            <a class="nav-link" href="javascript:void(0)" onclick="scrollToProducts()">
+              <button  class="btn btn-primary btn-fab btn-round">
+                <i style="line-height: 42px; font-size: 42px;" class="material-icons">arrow_drop_down</i>
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -169,6 +176,14 @@
       if ($('.section-contacts').length != 0) {
         $("html, body").animate({
           scrollTop: $('.section-contacts').offset().top
+        }, 1000);
+      }
+    }
+
+    function scrollToProducts() {
+      if ($('.main-raised').length != 0) {
+        $("html, body").animate({
+          scrollTop: $('.main-raised').offset().top
         }, 1000);
       }
     }
