@@ -27,8 +27,9 @@
   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
-          Macambira </a>
+        <a class="navbar-brand" href="{% url 'index' %}">
+          <img src="{% static 'assets/img/macambira-w.svg' %}" width="150" alt="Armazém Macambira">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -84,7 +85,7 @@
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
             <h1>Armazém Macambira</h1>
-            <h3>A Badass Bootstrap 4 UI Kit based on Material Design.</h3>
+            <h3>Produtos da Roça</h3>
             <a class="nav-link" href="javascript:void(0)" onclick="scrollToProducts()">
               <button  class="btn btn-primary btn-fab btn-round">
                 <i style="line-height: 42px; font-size: 42px;" class="material-icons">arrow_drop_down</i>
@@ -187,6 +188,19 @@
         }, 1000);
       }
     }
+
+    $(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar .navbar-brand img').attr('src','{% static "assets/img/macambira.svg" %}');
+            }
+            if ($(this).scrollTop() < 100) {
+                $('.navbar .navbar-brand img').attr('src','{% static "assets/img/macambira-w.svg" %}');
+            }
+        })
+    });
+
+
 
   </script>
 </body>
