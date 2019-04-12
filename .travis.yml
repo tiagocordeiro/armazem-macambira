@@ -1,6 +1,6 @@
 language: python
-python:
-  - "3.6.6"
+python: 3.7-dev
+
 services:
   postgresql
 env:
@@ -17,8 +17,8 @@ before_script:
   - python manage.py migrate --noinput
 # command to run tests
 script:
-  - pycodestyle core/ website/
-  - pyflakes core/ website/
+  - pycodestyle .
+  - flake8 .
   - coverage run manage.py test -v 2
 after_success:
   - codecov
