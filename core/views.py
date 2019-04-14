@@ -1,9 +1,8 @@
 from django.shortcuts import render
+from products.facade import get_all_categories
 
 
 def index(request):
-    return render(request, 'index.html')
-
-
-def index_paper(request):
-    return render(request, 'index_p.html')
+    categorias = get_all_categories()
+    ctx = {'categorias': categorias, }
+    return render(request, 'index.html', context=ctx)
