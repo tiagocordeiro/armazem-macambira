@@ -5,86 +5,54 @@
 
 <!-- Main Content Start -->
 {% block content %}
-<div class="main main-raised">
+  <div class="main main-raised">
     <div class="container">
       <div class="section text-center">
         <h2 class="title">Produtos</h2>
         <div class="team">
           <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{% static "assets/img/faces/avatar.jpg" %}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
-                  </div>
-                  <h4 class="card-title">Gigi Hadid
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <button style="margin-right: 10px;" class="btn btn-primary btn-fab btn-round" data-toggle="tooltip" data-placement="top" title="Adicionar ao carrinho" data-container="body">
-                      <i class="material-icons">add_shopping_cart</i>
-                    </button>
-                    <button class="btn btn-info">Detalhes</button>
+            {% for categoria in categorias %}
+              <div class="col-md-4">
+                <div class="team-player">
+                  <div class="card card-plain">
+                    <div class="col-md-12 ml-auto mr-auto">
+                      <a href="{% url 'category_list' slug=categoria.slug %}">
+                        <img src="{% static "assets/img/faces/avatar.jpg" %}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
+                      </a>
+                    </div>
+                    <h4 class="card-title">
+                      <a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.name }}</a>
+                      <br>
+                      <small class="card-description text-muted"><a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.description }}</a></small>
+                    </h4>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{% static "assets/img/faces/christian.jpg" %}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Christian Louboutin
-                    <br>
-                    <small class="card-description text-muted">Designer</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="{% static "assets/img/faces/kendall.jpg" %}" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Kendall Jenner
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-instagram"></i></a>
-                    <a href="#" class="btn btn-link btn-just-icon"><i class="fa fa-facebook-square"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {% endfor %}
           </div>
         </div>
+        {#        <div class="card-deck">#}
+        {#          {% for categoria in categorias %}#}
+        {#          <div class="card">#}
+        {#            <img class="card-img-top" src="{% static "assets/img/faces/avatar.jpg" %}" alt="{{ categoria.name }}">#}
+        {#            <div class="card-body">#}
+        {#              <h5 class="card-title">{{ categoria.name }}</h5>#}
+        {#              <p class="card-text">{{ categoria.description }}</p>#}
+        {#            </div>#}
+        {#            <div class="card-footer">#}
+        {#              <a class="btn btn-info" href="#" role="button">Ver produtos</a>#}
+        {#            </div>#}
+        {#          </div>#}
+        {#          {% endfor %}#}
+        {#        </div>#}
       </div>
       <div class="section section-contacts">
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="text-center title">Fale Conosco</h2>
-            <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few lines about each one and contact us about any further collaboration. We will responde get back to you in a couple of hours.</h4>
+            <h4 class="text-center description">Divide details about your product or agency work into parts. Write a few
+              lines about each one and contact us about any further collaboration. We will responde get back to you in a
+              couple of hours.</h4>
             <form class="contact-form">
               <div class="row">
                 <div class="col-md-6">
