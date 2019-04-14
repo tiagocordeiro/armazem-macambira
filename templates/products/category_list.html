@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+{% for produto in produtos_categoria %}
+   <a href="{% url 'product_detail' slug=produto.slug %}">{{ produto.name }}</a>
+{% endfor %}
+</body>
+</html>
