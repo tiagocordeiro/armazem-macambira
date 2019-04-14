@@ -12,7 +12,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="brand">
-            <h1>{{ categoria|title }}</h1>
+            <h1>Categorias de Produtos</h1>
           </div>
         </div>
       </div>
@@ -29,19 +29,19 @@
         <h2 class="title">Produtos</h2>
         <div class="team">
           <div class="row">
-            {% for produto in produtos_categoria %}
+            {% for categoria in categorias %}
               <div class="col-md-4">
                 <div class="team-player">
                   <div class="card card-plain">
                     <div class="col-md-12 ml-auto mr-auto">
-                      <a href="{% url 'product_detail' slug=produto.slug %}">
+                      <a href="{% url 'category_list' slug=categoria.slug %}">
                         <img src="{% static "assets/img/faces/avatar.jpg" %}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
                       </a>
                     </div>
                     <h4 class="card-title">
-                      <a href="{% url 'product_detail' slug=produto.slug %}">{{ produto.name }}</a>
+                      <a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.name }}</a>
                       <br>
-                      <small class="card-description text-muted"><a href="{% url 'product_detail' slug=produto.slug %}">{{ produto.description }}</a></small>
+                      <small class="card-description text-muted"><a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.description }}</a></small>
                     </h4>
                   </div>
                 </div>
