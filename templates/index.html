@@ -17,13 +17,19 @@
                   <div class="card card-plain">
                     <div class="col-md-12 ml-auto mr-auto">
                       <a href="{% url 'category_list' slug=categoria.slug %}">
-                        <img src="{% static "assets/img/faces/avatar.jpg" %}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
+                        {% if categoria.image %}
+                          <img src="{{ categoria.image.url }}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
+                        {% else %}
+                          <img src="{% static "assets/img/placeholder.jpg" %}" alt="Thumbnail Image" class="img-raised rounded img-fluid">
+                        {% endif %}
                       </a>
                     </div>
                     <h4 class="card-title">
                       <a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.name }}</a>
                       <br>
-                      <small class="card-description text-muted"><a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.description }}</a></small>
+                      <small class="card-description text-muted">
+                        <a href="{% url 'category_list' slug=categoria.slug %}">{{ categoria.description }}</a>
+                      </small>
                     </h4>
                   </div>
                 </div>
@@ -31,20 +37,6 @@
             {% endfor %}
           </div>
         </div>
-        {#        <div class="card-deck">#}
-        {#          {% for categoria in categorias %}#}
-        {#          <div class="card">#}
-        {#            <img class="card-img-top" src="{% static "assets/img/faces/avatar.jpg" %}" alt="{{ categoria.name }}">#}
-        {#            <div class="card-body">#}
-        {#              <h5 class="card-title">{{ categoria.name }}</h5>#}
-        {#              <p class="card-text">{{ categoria.description }}</p>#}
-        {#            </div>#}
-        {#            <div class="card-footer">#}
-        {#              <a class="btn btn-info" href="#" role="button">Ver produtos</a>#}
-        {#            </div>#}
-        {#          </div>#}
-        {#          {% endfor %}#}
-        {#        </div>#}
       </div>
       <div class="section section-contacts">
         <div class="row">
