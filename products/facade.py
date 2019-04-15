@@ -13,12 +13,14 @@ def get_product(slug):
     return Product.objects.get(slug=slug)
 
 
-def get_all_categories():
+def get_all_categories(active=True):
     """
     Search all categories on database
     :return: tuple of Categories
     """
-    return tuple(Category.objects.all())
+    if active is False:
+        return tuple(Category.objects.all())
+    return tuple(Category.objects.all().filter(active__exact=True))
 
 
 def get_products_category(slug):
