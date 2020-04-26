@@ -26,4 +26,4 @@ six==1.12.0
 urllib3==1.24.1
 
 # Images
-Pillow==6.0.0
+Pillow==7.1.2
