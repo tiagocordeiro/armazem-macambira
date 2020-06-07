@@ -27,6 +27,7 @@ EMAIL_HOST_PASSWORD=
 CLOUDINARY_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
+CLOUDINARY_URL=
 """.strip() % get_random_string(50, chars)
 
 # Writing our configuration file to '.env'
